@@ -10,6 +10,11 @@ from PIL import Image
 import sys
 
 def shuffle_img(img, indices):
+    """
+    img: a numpy array of uint8 from an image.
+    indices: a n-dimensional array that gives the position of each of the
+    n subdivisions of the image.
+    """
     y = img.shape[1] # number of columns
     z = img.shape[2] # number of channels (3 for RGB)
     n = len(indices)
@@ -45,6 +50,7 @@ def save_perm_phrase(words, indices):
         perm += [words[i]]
     for i in range(len(perm)):
         to_save += perm[i] + ' '
+    to_save += '\n'
     return to_save
 
 if __name__ == "__main__":
